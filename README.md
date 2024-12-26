@@ -1,8 +1,8 @@
 # 🌱 My 100 Days of Code Challenge 🌱
 
-💪This is my personal journey through the 100 Days of Code challenge. I 💪aim to improve my coding skills and build a consistent practice.
+💪This is my personal journey through the 100 Days of Code challenge. I aim to improve my coding skills and build a consistent practice.
 
-## 🐾 Goals
+## 🐾 Goals 🐾
 
 - Learn a new programming concept every day.
 - Work on small projects to apply what I've learned.
