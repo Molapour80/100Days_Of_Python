@@ -1,6 +1,4 @@
-##Calculates
-
-    
+##Calculates 
 def main():
     print("Welcom to Calulate:))")
     print("1:Submit")
@@ -33,11 +31,11 @@ def main():
         elif choose == "4":
             a = int(input("Enter your number1:"))
             b = int(input("Enter your number2:"))
-            if a >= b :
+            if b == 0 :
+                print("not true")
+            else:
                 dis = a / b
                 print(dis)
-            else:
-                print("number not true")
 
         elif choose == "":
             continue
