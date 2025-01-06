@@ -23,39 +23,40 @@ def winner_game(user_choice,computer_choice):
     else:
         return "You lose :(!"
     
-def update(result):
-    if not os.path.exists('score.txt'):
-        with open('score.txt','w') as files:
-            files.write("user_wins:0\ncomputer_wins:0\n")
+def update_scores(winner):
+    """Update the scores based on the winner."""
+    scores = {"user_wins": 0, "computer_wins": 0}
 
-    with open('score.txt', 'r') as files:
-        scores = files.readlines()
+    
+    try:
+        with open('scores.txt', 'r') as f:
+            for line in f:
+                key, value = line.strip().split(':')
+                scores[key] = int(value)
+    except FileNotFoundError:
+        pass
 
-    user_wins = int(scores[0].strip().split(':')[1])
-    computer_wins = int(scores[1].strip().split(':')[1])
+    if winner == "You win:)":
+        scores["user_wins"] += 1
+    elif winner == "You lose :(!":
+        scores["computer_wins"] += 1
 
-    if result == "You win:)":
-        user_wins += 1
-    elif result == "You lose :(!":
-        computer_wins += 1
-
-    with open('score.txt', 'w') as f:
-        f.write(f"user_wins:{user_wins}\ncomputer_wins:{computer_wins}\n")
+    
+    with open('scores.txt', 'w') as f:
+        for key, value in scores.items():
+            f.write(f"{key}:{value}\n")
 
 def display_scores():
     
-    if os.path.exists('score.txt'):
-        with open('score.txt', 'r') as files:
-            scores = files.readlines()
-        print("\nCurrent Scores:")
-        print(f"You: {scores[0].strip().split(':')[1]} wins")
-        print(f"Computer: {scores[1].strip().split(':')[1]} wins")
-    else:
+    try:
+        with open('scores.txt', 'r') as f:
+            scores = f.readlines()
+            print("\nCurrent Scores:")
+            for line in scores:
+                print(line.strip())
+    except FileNotFoundError:
         print("No scores available.")
     
-
-
-
 def main():
     print("Welcome to Rock, Paper, Scissors *_*")
     while True:
@@ -68,9 +69,10 @@ def main():
             
         result = winner_game(user_choice, computer_choice)
         print(result)
-            
-        update(result)
+        update_scores(result)
+        
         display_scores()
+        
 
         play_again = input("\nDo you want to play again? (yes/no): ").lower()
         if play_again != 'yes':
