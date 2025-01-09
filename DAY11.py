@@ -15,10 +15,10 @@ class ExpenseManager:
         
         print("\nExpenses:")
         for expense in self.expenses:
-            print(f"{expense['description']}: ${expense['amount']:.2f}")
+            print(f"{expense['description']}: {expense['amount']}")
         
         total = sum(expense['amount'] for expense in self.expenses)
-        print(f"\nTotal Expenses: ${total:.2f}")
+        print(f"\nTotal Expenses: {total}")
 
 def main():
     manager = ExpenseManager()
