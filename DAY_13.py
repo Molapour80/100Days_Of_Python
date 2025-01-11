@@ -17,11 +17,15 @@ class WordApp(App):
         add_button = Button(text='Add Word')
         add_button.bind(on_press=self.add_word)
 
+        save_button = Button(text='Save to CSV')
+        save_button.bind(on_press=self.save_to_csv)
+
         self.word_label = Label(text='Words will appear here')
 
         layout.add_widget(self.word_input)
         layout.add_widget(self.meaning_input)
         layout.add_widget(add_button)
+        layout.add_widget(save_button)
         layout.add_widget(self.word_label)
 
         return layout
