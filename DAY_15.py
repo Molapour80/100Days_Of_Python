@@ -10,14 +10,13 @@ def load_tasks():
             return json.load(file)
     return []
 
-
 def save_tasks(tasks):
     with open(FILENAME, 'w') as file:
         json.dump(tasks, file)
 
-
-tasks = []
 def main():
+    tasks = load_tasks()
+
     while True:
         print("\nWelcom to to do list")
         print("1.Add the task")
@@ -25,8 +24,6 @@ def main():
         print("3.update task")
         print("4.View the task")
         print("5.Exit")
-
-        
 
         try :
             print("choes the option")
@@ -76,7 +73,7 @@ def main():
                 print("Invalid choice. Please try again.")
         
         except Exception as e:
-                print("Error",e)
+            print("Error",e)
 
 if __name__ == "__main__":
     main()
