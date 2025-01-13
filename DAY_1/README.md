@@ -10,11 +10,5 @@ Welcome to the **Guess the Number** game! A thrilling console-based adventure wh
 - 🔍 Hints for higher or lower guesses
 - ⏰ Limited attempts (10 guesses)
 
-## 🚀 Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/guess-the-number.git
-
 # 🎮 How to Play
 1. Run the game by executing the `guess_the_number.py` file in your terminal:
