@@ -11,4 +11,4 @@ Welcome to the **Guess the Number** game! A thrilling console-based adventure wh
 - ⏰ Limited attempts (10 guesses)
 
 # 🎮 How to Play
-1. Run the game by executing the `guess_the_number.py` file in your terminal:
+1. Run the game by executing the `DAY_1.py` file in your terminal:
