@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>پست‌های وبلاگ</h2>
+    {% for post in posts %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">هیچ پستی وجود ندارد.</div>
+    {% endfor %}
+{% endblock %}
