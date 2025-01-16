@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>وبلاگ من</title>
 </head>
 <body>
-    <header class="bg-primary text-white text-center py-3">
+    <header class="bg-primary text-white text-center py-3 animate__animated animate__fadeInDown">
         <h1>وبلاگ من</h1>
         <nav>
             <a class="text-white" href="{{ url_for('index') }}">خانه</a>
