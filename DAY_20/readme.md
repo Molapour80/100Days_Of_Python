@@ -21,7 +21,7 @@ Install the required libraries using pip:
 
 ```bash
 pip install qrcode
-
+'''
 # 🚀 How to Run
 python '''
 qr_code_generator.py
