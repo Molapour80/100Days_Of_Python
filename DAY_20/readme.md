@@ -24,6 +24,6 @@ pip install qrcode
 ```
 # 🚀 How to Run
 ```bash
-qr_code_generator.py
+DAY_20.py
 
 ```
