@@ -7,7 +7,7 @@ Welcome to the **Reminder App**! This simple yet effective command-line applicat
 - **Automatic Handling**: Automatically adjusts for reminders set in the past by scheduling them for the next day.
 - **Real-Time Notifications**: Receive a notification at the exact moment your reminder is due.
 
-## Requirements
+## ⏰Requirements
 To run this application, you need:
 
 - Python 3.x 
