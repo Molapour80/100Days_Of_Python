@@ -1,0 +1,166 @@
+import mysql.connector
+from mysql.connector import Error
+
+class Database:
+    def __init__(self, host, user, password, database):
+        self.host = host
+        self.user = user
+        self.password = password
+        self.database = database
+
+    def connection(self):
+        """Establish a connection to the database."""
+        try:
+            conn = mysql.connector.connect(
+                host=self.host,
+                user=self.user,
+                password=self.password,
+                database=self.database
+            )
+            if conn.is_connected():
+                print("Connected to MySQL database")
+                return conn
+        except Error as e:
+            print(f"Error connecting to MySQL: {e}")
+            return None
+
+    def add_student(self, student):
+        """Add a student record to the database."""
+        conn = self.connection()
+        if conn is None:
+            return  # Exit if connection failed
+
+        try:
+            cursor = conn.cursor()
+            sql = 'INSERT INTO students (name, family, age, phone) VALUES (%s, %s, %s, %s)'
+            cursor.execute(sql, (student.name, student.family, student.age, student.phone))
+            conn.commit()
+            print("Student added successfully!")
+        except Error as e:
+            print(f"Error adding student: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+
+    def delete_student(self, student_id):
+        """Delete a student record from the database."""
+        conn = self.connection()
+        if conn is None:
+            return  # Exit if connection failed
+
+        try:
+            cursor = conn.cursor()
+            sql = 'DELETE FROM students WHERE id = %s'
+            cursor.execute(sql, (student_id,))
+            conn.commit()
+            print("Student deleted successfully!")
+        except Error as e:
+            print(f"Error deleting student: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+
+    def update_student(self, student_id, name, family, age, phone):
+        """Update a student record in the database."""
+        conn = self.connection()
+        if conn is None:
+            return  # Exit if connection failed
+
+        try:
+            cursor = conn.cursor()
+            sql = 'UPDATE students SET name = %s, family = %s, age = %s, phone = %s WHERE id = %s'
+            cursor.execute(sql, (name, family, age, phone, student_id))
+            conn.commit()
+            print("Student updated successfully!")
+        except Error as e:
+            print(f"Error updating student: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+
+    def view_students(self):
+        """Retrieve and display all students from the database."""
+        conn = self.connection()
+        if conn is None:
+            return  # Exit if connection failed
+
+        try:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM students")
+            students = cursor.fetchall()
+            
+            print("\nStudent List:")
+            for student in students:
+                print(f"ID: {student[0]}, Name: {student[1]}, Family: {student[2]}, Age: {student[3]}, Phone: {student[4]}")
+        except Error as e:
+            print(f"Error retrieving students: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+
+
+class Student:
+    def __init__(self, name, family, age, phone):
+        self.name = name
+        self.family = family
+        self.age = age
+        self.phone = phone
+
+def main():
+    db = Database(host='localhost', user='admin', password='2001', database='student_management')
+
+    while True:
+        print("\n1. Add Student")
+        print("2. Delete Student")
+        print("3. Update Student")
+        print("4. View Students")
+        print("5. Exit")
+
+        choice = input("Enter your option: ")
+
+        if choice == "1":
+            name = input("Enter student name: ")
+            family = input("Enter student family: ")
+            age = input("Enter student age: ")
+            phone = input("Enter student phone: ")
+            try:
+                age = int(age)
+                new_student = Student(name, family, age, phone)
+                db.add_student(new_student)
+            except ValueError:
+                print("Invalid age. Please enter a number.")
+
+        elif choice == "2":
+            student_id = input("Enter student ID to delete: ")
+            try:
+                student_id = int(student_id)
+                db.delete_student(student_id)
+            except ValueError:
+                print("Invalid ID. Please enter a number.")
+
+        elif choice == "3":
+            student_id = input("Enter student ID to update: ")
+            try:
+                student_id = int(student_id)
+                name = input("Enter new student name: ")
+                family = input("Enter new student family: ")
+                age = input("Enter new student age: ")
+                phone = input("Enter new student phone: ")
+                age = int(age)
+                db.update_student(student_id, name, family, age, phone)
+            except ValueError:
+                print("Invalid input. Please enter valid data.")
+
+        elif choice == "4":
+            db.view_students()
+
+        elif choice == "5":
+            print("Exiting the system.")
+            break
+        elif choice == " ":
+            continue
+        else:
+            print("Invalid option. Please try again.")
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,8 @@
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    family VARCHAR(100) NOT NULL,
+    age INT NOT NULL CHECK (age >= 0 AND age <= 120),
+    phone VARCHAR(15) NOT NULL UNIQUE
+);
