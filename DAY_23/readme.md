@@ -19,7 +19,7 @@ A simple Python application that retrieves the current weather information for a
 
 ```bash
 pip install requests
-
+'''
 # 🌍For Get a API key:
 1.Visit the OpenWeather website: OpenWeather
 2.Sign Up:
@@ -34,3 +34,4 @@ pip install requests
 # 🏃‍♂️RUN:
 ''' bash
 python DAY_23.py
+'''
