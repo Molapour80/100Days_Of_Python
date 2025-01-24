@@ -1,6 +1,6 @@
 # 📚 Simple Library Management System
 
-![Library Logo](https://example.com/path/to/your/logo.png)
+![Library Logo](https://example.com/images/library-logo.png)
 
 ## ✨ Description
 
