@@ -16,4 +16,6 @@ Welcome to the **Password Generator**! This simple yet powerful tool creates sec
 
 # 📊 Example Outputs
 . Length: 8
+ '''
   Generated Password: aB3!pQ7$
+  
