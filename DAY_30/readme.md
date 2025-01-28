@@ -23,7 +23,7 @@ To use this currency converter, follow these steps:
 
 1. **Ensure you have Python installed** on your machine. You can download it from [python.org](https://www.python.org/downloads/).
 
-2. **Save the currency converter code** into a Python file named `currency_converter.py`:
+2. **Save the currency converter code** into a Python file named `dau_30.py`:
 
    ```python
    def currency_converter():
