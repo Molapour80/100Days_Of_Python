@@ -1,6 +1,6 @@
 # COVID-19 Global Heatmap Visualization
 
-![Sample Heatmap](https://i.imgur.com/JQl1D1l.png)
+(https://i.imgur.com/JQl1D1l.png)
 
 ## Project Description
 This Python script creates an interactive heatmap visualization of global COVID-19 confirmed cases using data from Johns Hopkins University.
