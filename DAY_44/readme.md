@@ -1,8 +1,6 @@
-# COVID-19 Global Heatmap Visualization
+# 🌍COVID-19 Global Heatmap Visualization
 
-(https://i.imgur.com/JQl1D1l.png)
-
-## Project Description
+## 🗾Project Description
 This Python script creates an interactive heatmap visualization of global COVID-19 confirmed cases using data from Johns Hopkins University.
 
 ## Features
@@ -16,7 +14,7 @@ This Python script creates an interactive heatmap visualization of global COVID-
 - Python 3.6+
 - Required packages:
 
-## How to Use
+## ⚠️How to Use
 1. Run the script:
  ```bash
  python covid_heatmap.py
