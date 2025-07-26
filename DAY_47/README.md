@@ -14,6 +14,16 @@ A Python script for text analysis and word counting with support for Persian/Eng
 1. Ensure Python 3.6+ is installed
 2. Clone this repository or download the script
 
+
+# Example 
+- input
+```
+Hello! How are you today? I hope you're doing well.
+```
+- output 
+```
+Total words in your text: 8
+```
 # Process Text Files
 
 ```python
