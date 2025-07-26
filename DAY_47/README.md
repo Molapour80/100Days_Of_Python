@@ -1,8 +1,8 @@
-# Word Counter in Python
+# 🌱Word Counter in Python
 
 A Python script for text analysis and word counting with support for Persian/English text.
 
-## Features
+## 🍃Features
 - Count total words in input text
 - Automatic punctuation removal
 - Case normalization (optional)
@@ -15,7 +15,7 @@ A Python script for text analysis and word counting with support for Persian/Eng
 2. Clone this repository or download the script
 
 
-# Example 
+# 🐜Example 
 - input
 ```
 Hello! How are you today? I hope you're doing well.
