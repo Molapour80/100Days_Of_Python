@@ -26,6 +26,6 @@ A Python script that automatically changes your desktop wallpaper at regular int
 ## Usage
 
 1. Prepare a folder with your wallpaper images (JPG, PNG, BMP formats supported)
-2. Edit the `wallpaper_changer.py` file:
+2. Edit the `day49.py` file:
    - Set `wallpaper_folder` to your images folder path
    - Set `change_interval` to desired seconds between changes
