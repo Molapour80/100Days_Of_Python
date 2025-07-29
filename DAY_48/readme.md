@@ -31,4 +31,3 @@ A Python application for fetching current weather data and forecasts using OpenW
 - Pressure: 1012 hPa
 
 ```
-

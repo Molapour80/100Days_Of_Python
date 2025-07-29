@@ -9,7 +9,7 @@ response = requests.get(FORECAST_URL)
 data = response.json()
 
 if response.status_code == 200:
-    for forecast in data["list"][:5]:  # First 5 forecasts
+    for forecast in data["list"][:5]:  # First 5 forecasts (5day)
         date = forecast["dt_txt"]
         temp = forecast["main"]["temp"]
         weather = forecast["weather"][0]["description"]
