@@ -1,0 +1,8 @@
+https://example.com/index.html
+https://example.com/about.html
+https://example.com/courses.html
+https://example.com/trainers.html
+https://example.com/events.html
+https://example.com/pricing.html
+https://example.com/contact.html
+https://bootstrapmade.com/

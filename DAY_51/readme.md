@@ -1,24 +1,15 @@
 # HTML Link Extractor
 
-![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+[![Python Version](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A simple Python script to extract all hyperlinks from HTML files and save them to a text file.
+A robust Python tool for extracting and filtering links from HTML files with duplicate removal and URL normalization.
 
-## 📌 Features
+## Features
 
-- Extracts all `href` attributes from `<a>` tags
-- Saves links to a clean text file (one link per line)
-- Lightweight with only one dependency (BeautifulSoup)
-- Easy to integrate into larger projects
-
-## 🛠️ Requirements
-
-- Python 3.6+
-- BeautifulSoup4
-
-## 🔧Installation
-
-```bash
-pip install beautifulsoup4
+- Extracts all anchor links from HTML files
+- Filters out empty, duplicate, and invalid links
+- Supports relative URL conversion with base URL
+- Preserves link order while removing duplicates
+- Simple command-line interface
 
