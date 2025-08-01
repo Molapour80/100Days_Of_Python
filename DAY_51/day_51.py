@@ -11,7 +11,7 @@ class HTMLLinkExtractor:
         if not os.path.exists(html_file):
             raise FileNotFoundError(f"HTML file not found: {html_file}")
 
-        with open(html_file, 'r', encoding='utf-8') as file:
+        with open(html_file, 'r') as file:
             soup = BeautifulSoup(file.read(), 'html.parser')
 
         links = []
