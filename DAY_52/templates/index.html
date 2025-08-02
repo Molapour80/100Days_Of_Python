@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>کوتاه کننده لینک</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        form { display: flex; flex-direction: column; gap: 10px; }
+        input { padding: 8px; font-size: 16px; }
+        button { padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .result { margin-top: 20px; padding: 10px; background: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <h1>سرویس کوتاه کننده لینک</h1>
+    <form method="POST">
+        <input type="url" name="url" placeholder="لینک خود را وارد کنید" required>
+        <button type="submit">کوتاه کردن</button>
+    </form>
+    {% if short_url %}
+    <div class="result">
+        لینک کوتاه شده: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+    </div>
+    {% endif %}
+    <p><a href="/about">درباره ما</a></p>
+</body>
+</html>
