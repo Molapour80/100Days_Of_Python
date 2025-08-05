@@ -43,3 +43,9 @@ photoshare/
 │   └── upload.html       # Upload form
 └── photos.db             # Database
 ```
+### 🔧 Configuration
+- Edit app.py to customize:
+```
+app.config['UPLOAD_FOLDER'] = 'your/custom/path'  # Change upload directory
+app.config['MAX_SIZE'] = 8 * 1024 * 1024  # 8MB upload limit
+```
