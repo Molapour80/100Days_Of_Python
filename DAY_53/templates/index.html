@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>اشتراک‌گذاری عکس</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="text-center">
+    <div class="container mt-5">
+        <h1>گالری عکس‌ها</h1>
+        <a href="/upload" class="btn btn-primary">آپلود عکس جدید</a>
+        
+        <div class="row mt-4">
+            {% for photo in photos %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='uploads/' + photo.filename) }}" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text">{{ photo.caption }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
