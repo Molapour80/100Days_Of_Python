@@ -1,0 +1,2 @@
+This is the first sample file.
+It contains some example text.
