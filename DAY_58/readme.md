@@ -19,6 +19,4 @@ A simple Python simulator for flipping coins and rolling dice with customizable 
 - Python 3.6+
 - pip install "random"
 
-## 🎥 Demo
 
-![Coin & Dice Simulator Demo](demo.gif)
