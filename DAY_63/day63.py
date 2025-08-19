@@ -8,7 +8,7 @@ from telegram.ext import (
 )
 
 # Replace with your actual bot token
-TOKEN = "7677995974:AAF0O_QD9c-6HVYFarLhurAxUdFwX8hC_-c"
+TOKEN = "your token "
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send a welcome message when the command /start is issued."""
