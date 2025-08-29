@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Status Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .city-selector {
+            margin: 20px 0;
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .traffic-card {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .traffic-light { border-left-color: #2ecc71; }
+        .traffic-moderate { border-left-color: #f39c12; }
+        .traffic-heavy { border-left-color: #e74c3c; }
+        .traffic-congested { border-left-color: #c0392b; }
+        .alert {
+            background-color: #ffeaa7;
+            border-left: 5px solid #fdcb6e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-traffic-light"></i> Traffic Status Report</h1>
+        
+        <div class="city-selector">
+            <select id="citySelector" onchange="loadTrafficData()">
+                <option value="all">All Cities</option>
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div id="trafficData"></div>
+        <div id="alerts"></div>
+    </div>
+
+    <script>
+        function loadTrafficData() {
+            const city = document.getElementById('citySelector').value;
+            fetch(`/api/traffic/${city}`)
+                .then(response => response.json())
+                .then(data => {
+                    displayTrafficData(data, city);
+                });
+            
+            fetch('/api/alerts')
+                .then(response => response.json())
+                .then(alerts => {
+                    displayAlerts(alerts);
+                });
+        }
+        
+        function displayTrafficData(data, city) {
+            const container = document.getElementById('trafficData');
+            container.innerHTML = '';
+            
+            if (data.error) {
+                container.innerHTML = `<div class="alert">${data.error}</div>`;
+                return;
+            }
+            
+            if (city === 'all') {
+                for (const [city, areas] of Object.entries(data)) {
+                    const cityHeader = document.createElement('h2');
+                    cityHeader.textContent = `Traffic in ${city}`;
+                    container.appendChild(cityHeader);
+                    
+                    for (const [area, info] of Object.entries(areas)) {
+                        container.appendChild(createTrafficCard(area, info));
+                    }
+                }
+            } else {
+                for (const [area, info] of Object.entries(data)) {
+                    container.appendChild(createTrafficCard(area, info));
+                }
+            }
+        }
+        
+        function createTrafficCard(area, info) {
+            const card = document.createElement('div');
+            let trafficClass = 'traffic-moderate';
+            
+            if (info.level === 'Light') trafficClass = 'traffic-light';
+            else if (info.level === 'Heavy') trafficClass = 'traffic-heavy';
+            else if (info.level === 'Congested') trafficClass = 'traffic-congested';
+            
+            card.className = `traffic-card ${trafficClass}`;
+            card.innerHTML = `
+                <h3>${area}</h3>
+                <p><strong>Status:</strong> ${info.level} traffic</p>
+                <p><strong>Average speed:</strong> ${info.speed} km/h</p>
+                <p><strong>Last update:</strong> ${info.update_time}</p>
+            `;
+            
+            return card;
+        }
+        
+        function displayAlerts(alerts) {
+            const container = document.getElementById('alerts');
+            container.innerHTML = '';
+            
+            if (alerts.length > 0) {
+                const header = document.createElement('h2');
+                header.textContent = 'Traffic Alerts';
+                container.appendChild(header);
+                
+                alerts.forEach(alert => {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert';
+                    alertDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${alert}`;
+                    container.appendChild(alertDiv);
+                });
+            }
+        }
+        
+        // Load data on page load
+        window.onload = loadTrafficData;
+    </script>
+</body>
+</html>
