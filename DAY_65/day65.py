@@ -26,14 +26,14 @@ class TrafficReporter:
         if city and city not in self.cities:
             return {"error": "City not found"}
         
-        # Simulate traffic data
+        # Simulate traffic data :))))
         traffic_data = {}
         
         if city and area:
             if area not in self.areas.get(city, []):
                 return {"error": "Area not found"}
             
-            # Report for a specific area
+            # Report for a specific area>..<
             traffic_data[area] = {
                 "level": random.choice(self.traffic_levels),
                 "speed": random.randint(5, 60),
@@ -401,4 +401,4 @@ if __name__ == "__main__":
     
     # To run the console application instead, comment the above lines
     # and uncomment the line below:
-    # main()
+    ####### main()#######
