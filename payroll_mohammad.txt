@@ -1,4 +1,0 @@
-Payroll Slip - mohammad
-Base Salary: 4,000,000 Toman
-Overtime Hours: 12.0
-Net Salary: 3,693,500 Toman
