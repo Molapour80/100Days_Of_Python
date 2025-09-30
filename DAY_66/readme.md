@@ -18,12 +18,11 @@
 This sophisticated web scraper automatically extracts real-time currency and gold prices from Iran's premier financial website (TGJU.org) and presents them in both console output and Excel format. It's designed with robust error handling and multiple fallback methods to ensure you always get market data.
 
 ## Output 
-'''
-🎯 Real-time USD and Gold Price Scraper
+```🎯 Real-time USD and Gold Price Scraper
 🚀 Starting real-time price scraping...
 ✅ Successfully connected to TGJU
 📊 Number of tables found: 8
 ✅ Real USD price: 58,500 Toman
 ✅ Real Gold price: 312,500 Toman
 💾 Prices saved to market_prices.xlsx
-'''
+```
